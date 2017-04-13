@@ -1,0 +1,9 @@
+node.id;name;type;cost;description
+service:prov:google;gp2;HOT;0.11;SSD
+service:prov:google;io1;HOT;0.138;SSD Provisioned
+service:prov:google;st1;COLD;0.05;HDD
+service:prov:google;sc1;COLD;0.028;HDD Cold
+service:prov:google;S3 Snapshots;OBJECT;0.05;Snapshot
+service:prov:google;S3;OBJECT;0.023;Very Cold
+service:prov:google;S3 IA;OBJECT;0.0125;X Cold
+service:prov:google;Glacier;OBJECT;0.004;XX Cold
