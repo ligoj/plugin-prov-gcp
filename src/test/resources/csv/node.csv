@@ -1,0 +1,3 @@
+id;name;refined.id;mode;uiClasses;tag;tagUiClasses
+service:provisioning:google;Provisioning Google;service:provisioning;LINK;;;
+service:provisioning:google:account;Provisioning Google AccountA;service:provisioning:google;LINK;;;
