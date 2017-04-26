@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,10 +15,9 @@ import org.ligoj.app.AbstractAppTest;
 import org.ligoj.app.model.Node;
 import org.ligoj.app.model.Project;
 import org.ligoj.app.model.Subscription;
-import org.ligoj.app.plugin.prov.QuoteStorageVo;
 import org.ligoj.app.plugin.prov.ProvResource;
+import org.ligoj.app.plugin.prov.QuoteStorageVo;
 import org.ligoj.app.plugin.prov.QuoteVo;
-import org.ligoj.app.plugin.prov.google.ProvGoogleResource;
 import org.ligoj.app.plugin.prov.model.ProvInstance;
 import org.ligoj.app.plugin.prov.model.ProvInstancePrice;
 import org.ligoj.app.plugin.prov.model.ProvInstancePriceType;
@@ -52,9 +52,11 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 	@Before
 	public void prepareData() throws IOException {
 		persistSystemEntities();
-		persistEntities("csv", new Class[] { Node.class, Project.class, Subscription.class, ProvQuote.class, ProvStorage.class,
-				ProvInstancePriceType.class, ProvInstance.class, ProvInstancePrice.class,
-				ProvQuoteInstance.class, ProvQuoteStorage.class }, StandardCharsets.UTF_8.name());
+		persistEntities("csv",
+				new Class[] { Node.class, Project.class, Subscription.class, ProvQuote.class, ProvStorage.class,
+						ProvInstancePriceType.class, ProvInstance.class, ProvInstancePrice.class,
+						ProvQuoteInstance.class, ProvQuoteStorage.class },
+				StandardCharsets.UTF_8.name());
 		subscription = getSubscription("gStack", ProvGoogleResource.SERVICE_KEY);
 	}
 
@@ -119,4 +121,14 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertEquals("service:prov:google", resource.getKey());
 	}
 
+	@Test(expected = NotImplementedException.class)
+	public void link(final int subscription) throws Exception {
+		resource.link(subscription);
+	}
+
+	@Test
+	public void create(final int subscription) throws Exception {
+		// Nothing for now
+		resource.create(subscription);
+	}
 }
