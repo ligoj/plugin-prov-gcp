@@ -1,4 +1,4 @@
-node.id;name;type;cost;description
+node.id;name;frequency;cost;description
 service:prov:google;gp2;HOT;0.11;SSD
 service:prov:google;io1;HOT;0.138;SSD Provisioned
 service:prov:google;st1;COLD;0.05;HDD

@@ -23,9 +23,9 @@ import org.ligoj.app.plugin.prov.model.ProvInstancePriceType;
 import org.ligoj.app.plugin.prov.model.ProvQuote;
 import org.ligoj.app.plugin.prov.model.ProvQuoteInstance;
 import org.ligoj.app.plugin.prov.model.ProvQuoteStorage;
-import org.ligoj.app.plugin.prov.model.ProvStorage;
+import org.ligoj.app.plugin.prov.model.ProvStorageType;
 import org.ligoj.app.plugin.prov.model.VmOs;
-import org.ligoj.app.plugin.prov.model.VmStorageType;
+import org.ligoj.app.plugin.prov.model.ProvStorageFrequency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
@@ -52,7 +52,7 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 	public void prepareData() throws IOException {
 		persistSystemEntities();
 		persistEntities("csv",
-				new Class[] { Node.class, Project.class, Subscription.class, ProvQuote.class, ProvStorage.class,
+				new Class[] { Node.class, Project.class, Subscription.class, ProvQuote.class, ProvStorageType.class,
 						ProvInstancePriceType.class, ProvInstance.class, ProvInstancePrice.class,
 						ProvQuoteInstance.class, ProvQuoteStorage.class },
 				StandardCharsets.UTF_8.name());
@@ -96,11 +96,11 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertEquals("server1-root", quoteStorage.getName());
 		Assert.assertEquals(20, quoteStorage.getSize());
 		Assert.assertNotNull(quoteStorage.getQuoteInstance());
-		final ProvStorage storage = quoteStorage.getStorage();
+		final ProvStorageType storage = quoteStorage.getStorage();
 		Assert.assertNotNull(storage.getId());
 		Assert.assertEquals(0.11, storage.getCost(), 0.001);
 		Assert.assertEquals("gp2", storage.getName());
-		Assert.assertEquals(VmStorageType.HOT, storage.getType());
+		Assert.assertEquals(ProvStorageFrequency.HOT, storage.getFrequency());
 
 		// Not attached storage
 		Assert.assertNull(storages.get(3).getQuoteInstance());
