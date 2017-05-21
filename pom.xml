@@ -23,6 +23,12 @@
 		</dependency>
 	</dependencies>
 
+	<scm>
+		<connection>scm:git:https://github.com/ligoj/plugin-prov-google</connection>
+		<developerConnection>scm:git:https://github.com/ligoj/plugin-prov-google</developerConnection>
+		<url>https://github.com/ligoj/plugin-prov-google.git</url>
+	</scm>
+
 	<profiles>
 		<profile>
 			<id>bintray</id>
