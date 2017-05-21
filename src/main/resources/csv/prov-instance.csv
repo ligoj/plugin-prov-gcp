@@ -14,6 +14,10 @@ service:prov:google;8;53248;true;n1-highmem-8
 service:prov:google;16;14746;true;n1-highcpu-16
 service:prov:google;16;61440;true;n1-standard-16
 service:prov:google;16;106496;true;n1-highmem-16
-service:prov:google;32;29491;true;n1-highcpu-321
-service:prov:google;32;122880;true;n1-standard-321
-service:prov:google;32;212992;true;n1-highmem-321
+service:prov:google;32;29491;true;n1-highcpu-32
+service:prov:google;32;122880;true;n1-standard-32
+service:prov:google;32;212992;true;n1-highmem-32
+service:prov:google;64;58982;true;n1-highcpu-64
+service:prov:google;64;245760;true;n1-standard-64
+service:prov:google;64;425984;true;n1-highmem-64
+service:prov:google;0;0;true;custom

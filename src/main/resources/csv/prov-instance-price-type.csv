@@ -1,3 +1,7 @@
 node.id;name;period;minimum
 service:prov:google;Default;1;10
-service:prov:google;Preemptible;1;10
+service:prov:google;Preemptible;1;1
+service:prov:google;Custom;1;10
+service:prov:google;Custom Preemptible;1;1
+service:prov:google;Custom Committed 1y;525600;525600
+service:prov:google;Custom Committed 3y;1576800;1576800

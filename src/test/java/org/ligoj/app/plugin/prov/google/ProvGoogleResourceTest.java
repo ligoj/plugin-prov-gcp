@@ -74,19 +74,21 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertEquals(3, instances.size());
 		final ProvQuoteInstance quoteInstance = instances.get(0);
 		Assert.assertNotNull(quoteInstance.getId());
-		Assert.assertEquals("s-cg1.4xlarge-WINDOWS-Spot-26", quoteInstance.getName());
+		Assert.assertEquals("f1-micro-LINUX-Default-0.0086", quoteInstance.getName());
 		final ProvInstancePrice instancePrice = quoteInstance.getInstancePrice();
-		Assert.assertEquals(26.0, instancePrice.getCost(), 0.001);
-		Assert.assertEquals(VmOs.WINDOWS, instancePrice.getOs());
+		Assert.assertEquals(0.0086, instancePrice.getCost(), 0.0001);
+		Assert.assertEquals(VmOs.LINUX, instancePrice.getOs());
 		Assert.assertNotNull(instancePrice.getType().getId());
-		Assert.assertEquals(60, instancePrice.getType().getPeriod().intValue());
-		Assert.assertEquals("Spot", instancePrice.getType().getName());
+		Assert.assertEquals(1, instancePrice.getType().getPeriod().intValue());
+		Assert.assertEquals("Default", instancePrice.getType().getName());
 		final ProvInstance instance = instancePrice.getInstance();
 		Assert.assertNotNull(instance.getId().intValue());
-		Assert.assertEquals("cg1.4xlarge", instance.getName());
-		Assert.assertEquals(16, instance.getCpu().intValue());
-		Assert.assertEquals(22500, instance.getRam().intValue());
-		Assert.assertTrue(instance.getConstant());
+		Assert.assertEquals("f1-micro", instance.getName());
+		Assert.assertEquals(0.2, instance.getCpu(), 0.01);
+		Assert.assertEquals(614, instance.getRam().intValue());
+		Assert.assertFalse(instance.getConstant());
+		
+		Assert.assertEquals("SQL Server Enterprise",instances.get(2).getInstancePrice().getLicense());
 
 		// Check storage
 		final List<QuoteStorageVo> storages = vo.getStorages();
@@ -98,9 +100,9 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertNotNull(quoteStorage.getQuoteInstance());
 		final ProvStorageType storage = quoteStorage.getType();
 		Assert.assertNotNull(storage.getId());
-		Assert.assertEquals(0.11, storage.getCost(), 0.001);
-		Assert.assertEquals("gp2", storage.getName());
-		Assert.assertEquals(ProvStorageFrequency.HOT, storage.getFrequency());
+		Assert.assertEquals(0.04, storage.getCost(), 0.001);
+		Assert.assertEquals("Standard provisioned space", storage.getName());
+		Assert.assertEquals(ProvStorageFrequency.COLD, storage.getFrequency());
 
 		// Not attached storage
 		Assert.assertNull(storages.get(3).getQuoteInstance());
