@@ -100,7 +100,8 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertNotNull(quoteStorage.getQuoteInstance());
 		final ProvStorageType storage = quoteStorage.getType();
 		Assert.assertNotNull(storage.getId());
-		Assert.assertEquals(0.04, storage.getCost(), 0.001);
+		Assert.assertEquals(0.04, storage.getCostGb(), 0.001);
+		Assert.assertEquals(0, storage.getCost(), 0.001);
 		Assert.assertEquals("Standard provisioned space", storage.getName());
 		Assert.assertEquals(ProvStorageFrequency.COLD, storage.getFrequency());
 

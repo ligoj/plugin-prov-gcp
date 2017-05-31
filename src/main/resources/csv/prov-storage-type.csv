@@ -1,5 +1,5 @@
-node.id;name;frequency;optimized;cost;maximal;instanceCompatible
+node.id;name;frequency;optimized;costGb;maximal;instanceCompatible
 service:prov:google;Standard provisioned space;COLD;THROUGHPUT;0.040;64000;true
 service:prov:google;SSD provisioned space;HOT;IOPS;0.170;64000;true
-service:prov:google;Snapshot storage;ARCHIVE;THROUGHPUT;0.026
-service:prov:google;Image Storage;ARCHIVE;;0.085
+service:prov:google;Snapshot storage;ARCHIVE;THROUGHPUT;0.026;;
+service:prov:google;Image Storage;ARCHIVE;;0.085;;
