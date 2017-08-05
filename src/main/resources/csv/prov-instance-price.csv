@@ -41,27 +41,27 @@ Default;3.3632;n1-highmem-32;WINDOWS;;;
 Default;5.056;n1-highcpu-64;WINDOWS;;;
 Default;5.9072;n1-standard-64;WINDOWS;;;
 Default;7.44;n1-highmem-64;WINDOWS;;;
-Default;0.0686;f1-micro;RHE;;;
-Default;0.0885;g1-small;RHE;;;
-Default;0.1123;n1-standard-1;RHE;;;
-Default;0.138;n1-highcpu-2;RHE;;;
-Default;0.1646;n1-standard-2;RHE;;;
-Default;0.1902;n1-highmem-2;RHE;;;
-Default;0.216;n1-highcpu-4;RHE;;;
-Default;0.2692;n1-standard-4;RHE;;;
-Default;0.3204;n1-highmem-4;RHE;;;
-Default;0.442;n1-highcpu-8;RHE;;;
-Default;0.5484;n1-standard-8;RHE;;;
-Default;0.6508;n1-highmem-8;RHE;;;
-Default;0.754;n1-highcpu-16;RHE;;;
-Default;0.9668;n1-standard-16;RHE;;;
-Default;1.1716;n1-highmem-16;RHE;;;
-Default;1.378;n1-highcpu-32;RHE;;;
-Default;1.8036;n1-standard-32;RHE;;;
-Default;2.2132;n1-highmem-32;RHE;;;
-Default;2.626;n1-highcpu-64;RHE;;;
-Default;3.4772;n1-standard-64;RHE;;;
-Default;5.01;n1-highmem-64;RHE;;;
+Default;0.0686;f1-micro;RHEL;;;
+Default;0.0885;g1-small;RHEL;;;
+Default;0.1123;n1-standard-1;RHEL;;;
+Default;0.138;n1-highcpu-2;RHEL;;;
+Default;0.1646;n1-standard-2;RHEL;;;
+Default;0.1902;n1-highmem-2;RHEL;;;
+Default;0.216;n1-highcpu-4;RHEL;;;
+Default;0.2692;n1-standard-4;RHEL;;;
+Default;0.3204;n1-highmem-4;RHEL;;;
+Default;0.442;n1-highcpu-8;RHEL;;;
+Default;0.5484;n1-standard-8;RHEL;;;
+Default;0.6508;n1-highmem-8;RHEL;;;
+Default;0.754;n1-highcpu-16;RHEL;;;
+Default;0.9668;n1-standard-16;RHEL;;;
+Default;1.1716;n1-highmem-16;RHEL;;;
+Default;1.378;n1-highcpu-32;RHEL;;;
+Default;1.8036;n1-standard-32;RHEL;;;
+Default;2.2132;n1-highmem-32;RHEL;;;
+Default;2.626;n1-highcpu-64;RHEL;;;
+Default;3.4772;n1-standard-64;RHEL;;;
+Default;5.01;n1-highmem-64;RHEL;;;
 Default;0.0286;f1-micro;SUSE;;;
 Default;0.0485;g1-small;SUSE;;;
 Default;0.1623;n1-standard-1;SUSE;;;
@@ -188,27 +188,27 @@ Preemptible;1.72;n1-highmem-32;WINDOWS;;;
 Preemptible;3.088;n1-highcpu-64;WINDOWS;;;
 Preemptible;3.264;n1-standard-64;WINDOWS;;;
 Preemptible;3.44;n1-highmem-64;WINDOWS;;;
-Preemptible;0.0639;f1-micro;RHE;;;
-Preemptible;0.0677;g1-small;RHE;;;
-Preemptible;0.071;n1-standard-1;RHE;;;
-Preemptible;0.0765;n1-highcpu-2;RHE;;;
-Preemptible;0.082;n1-standard-2;RHE;;;
-Preemptible;0.0875;n1-highmem-2;RHE;;;
-Preemptible;0.093;n1-highcpu-4;RHE;;;
-Preemptible;0.104;n1-standard-4;RHE;;;
-Preemptible;0.115;n1-highmem-4;RHE;;;
-Preemptible;0.196;n1-highcpu-8;RHE;;;
-Preemptible;0.218;n1-standard-8;RHE;;;
-Preemptible;0.24;n1-highmem-8;RHE;;;
-Preemptible;0.262;n1-highcpu-16;RHE;;;
-Preemptible;0.306;n1-standard-16;RHE;;;
-Preemptible;0.35;n1-highmem-16;RHE;;;
-Preemptible;0.394;n1-highcpu-32;RHE;;;
-Preemptible;0.482;n1-standard-32;RHE;;;
-Preemptible;0.57;n1-highmem-32;RHE;;;
-Preemptible;0.658;n1-highcpu-64;RHE;;;
-Preemptible;0.834;n1-standard-64;RHE;;;
-Preemptible;1.01;n1-highmem-64;RHE;;;
+Preemptible;0.0639;f1-micro;RHEL;;;
+Preemptible;0.0677;g1-small;RHEL;;;
+Preemptible;0.071;n1-standard-1;RHEL;;;
+Preemptible;0.0765;n1-highcpu-2;RHEL;;;
+Preemptible;0.082;n1-standard-2;RHEL;;;
+Preemptible;0.0875;n1-highmem-2;RHEL;;;
+Preemptible;0.093;n1-highcpu-4;RHEL;;;
+Preemptible;0.104;n1-standard-4;RHEL;;;
+Preemptible;0.115;n1-highmem-4;RHEL;;;
+Preemptible;0.196;n1-highcpu-8;RHEL;;;
+Preemptible;0.218;n1-standard-8;RHEL;;;
+Preemptible;0.24;n1-highmem-8;RHEL;;;
+Preemptible;0.262;n1-highcpu-16;RHEL;;;
+Preemptible;0.306;n1-standard-16;RHEL;;;
+Preemptible;0.35;n1-highmem-16;RHEL;;;
+Preemptible;0.394;n1-highcpu-32;RHEL;;;
+Preemptible;0.482;n1-standard-32;RHEL;;;
+Preemptible;0.57;n1-highmem-32;RHEL;;;
+Preemptible;0.658;n1-highcpu-64;RHEL;;;
+Preemptible;0.834;n1-standard-64;RHEL;;;
+Preemptible;1.01;n1-highmem-64;RHEL;;;
 Preemptible;0.0239;f1-micro;SUSE;;;
 Preemptible;0.0277;g1-small;SUSE;;;
 Preemptible;0.121;n1-standard-1;SUSE;;;
@@ -305,10 +305,10 @@ Custom;0;custom;SUSE;;0.036489;0.004892
 Custom Preemptible;0;custom;SUSE;;0.00768;0.00103
 Custom Committed 1y;0;custom;SUSE;;0.021907;0.002936
 Custom Committed 3y;0;custom;SUSE;;0.015648;0.002097
-Custom;0;custom;RHE;;0.036489;0.004892
-Custom Preemptible;0;custom;RHE;;0.00768;0.00103
-Custom Committed 1y;0;custom;RHE;;0.021907;0.002936
-Custom Committed 3y;0;custom;RHE;;0.015648;0.002097
+Custom;0;custom;RHEL;;0.036489;0.004892
+Custom Preemptible;0;custom;RHEL;;0.00768;0.00103
+Custom Committed 1y;0;custom;RHEL;;0.021907;0.002936
+Custom Committed 3y;0;custom;RHEL;;0.015648;0.002097
 Custom;0;custom;WINDOWS;SQL Server Enterprise;0.439489;0.004892
 Custom Preemptible;0;custom;WINDOWS;SQL Server Enterprise;0.44668;0.00103
 Custom Committed 1y;0;custom;WINDOWS;SQL Server Enterprise;0.424907;0.002936
