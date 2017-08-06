@@ -1,4 +1,4 @@
-configuration.name;instancePrice.id!;name;cost;cpu;ram
-quote1;1;f1-micro-LINUX-Default-0.0086;0;0.5;256
-quote1;148;f1-micro-LINUX-Preemptible-0.0039;0;0.5;256
-quote1;313;custom-WINDOWS-Custom Committed 1y;0;0.5;256
+configuration.name;instancePrice.id!;name;os;cost;maxCost;cpu;ram
+quote1;1;f1-micro-LINUX-Default-0.0086;LINUX;0;0;0.5;256
+quote1;148;f1-micro-LINUX-Preemptible-0.0039;LINUX;0;0;0.5;256
+quote1;313;custom-WINDOWS-Custom Committed 1y;WINDOWS;0;0;0.5;256

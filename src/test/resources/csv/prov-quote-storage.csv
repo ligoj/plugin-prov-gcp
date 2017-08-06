@@ -1,5 +1,5 @@
-quoteInstance.id!;type.name;size;configuration.name;name;cost
-1;Standard provisioned space;20;quote1;server1-root;0
-1;SSD provisioned space;10;quote1;server1-data;0
-1;SSD provisioned space;51;quote1;server1-temp;0
-;Snapshot storage;13;quote1;shared-data;0
+quoteInstance.id!;type.name;size;configuration.name;name;cost;maxCost
+1;Standard provisioned space;20;quote1;server1-root;0;0
+1;SSD provisioned space;10;quote1;server1-data;0;0
+1;SSD provisioned space;51;quote1;server1-temp;0;0
+;Snapshot storage;13;quote1;shared-data;0;0
