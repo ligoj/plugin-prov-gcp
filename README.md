@@ -1,4 +1,4 @@
-# :link: Ligoj Google plugin [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.ligoj.plugin/plugin-prov-google/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.ligoj.plugin/plugin-prov-google)
+# :link: Ligoj Google plugin [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.ligoj.plugin/plugin-prov-google/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.ligoj.plugin/plugin-prov-google) [![Download](https://api.bintray.com/packages/ligoj/maven-repo/plugin-prov-google/images/download.svg) ](https://bintray.com/ligoj/maven-repo/plugin-prov-google/_latestVersion)
 
 [![Build Status](https://travis-ci.org/ligoj/plugin-prov-google.svg?branch=master)](https://travis-ci.org/ligoj/plugin-prov-google)
 [![Build Status](https://circleci.com/gh/ligoj/plugin-prov-google.svg?style=svg)](https://circleci.com/gh/ligoj/plugin-prov-google)
