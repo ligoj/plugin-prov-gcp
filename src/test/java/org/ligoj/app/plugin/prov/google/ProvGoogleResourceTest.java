@@ -15,7 +15,6 @@ import org.ligoj.app.model.Node;
 import org.ligoj.app.model.Project;
 import org.ligoj.app.model.Subscription;
 import org.ligoj.app.plugin.prov.ProvResource;
-import org.ligoj.app.plugin.prov.QuoteStorageVo;
 import org.ligoj.app.plugin.prov.QuoteVo;
 import org.ligoj.app.plugin.prov.model.ProvInstance;
 import org.ligoj.app.plugin.prov.model.ProvInstancePrice;
@@ -23,9 +22,10 @@ import org.ligoj.app.plugin.prov.model.ProvInstancePriceType;
 import org.ligoj.app.plugin.prov.model.ProvQuote;
 import org.ligoj.app.plugin.prov.model.ProvQuoteInstance;
 import org.ligoj.app.plugin.prov.model.ProvQuoteStorage;
+import org.ligoj.app.plugin.prov.model.ProvStorageFrequency;
+import org.ligoj.app.plugin.prov.model.ProvStoragePrice;
 import org.ligoj.app.plugin.prov.model.ProvStorageType;
 import org.ligoj.app.plugin.prov.model.VmOs;
-import org.ligoj.app.plugin.prov.model.ProvStorageFrequency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
@@ -91,19 +91,19 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertEquals("SQL Server Enterprise",instances.get(2).getInstancePrice().getLicense());
 
 		// Check storage
-		final List<QuoteStorageVo> storages = vo.getStorages();
+		final List<ProvQuoteStorage> storages = vo.getStorages();
 		Assert.assertEquals(4, storages.size());
-		final QuoteStorageVo quoteStorage = storages.get(0);
+		final ProvQuoteStorage quoteStorage = storages.get(0);
 		Assert.assertNotNull(quoteStorage.getId());
 		Assert.assertEquals("server1-root", quoteStorage.getName());
-		Assert.assertEquals(20, quoteStorage.getSize());
+		Assert.assertEquals(20, quoteStorage.getSize().intValue());
 		Assert.assertNotNull(quoteStorage.getQuoteInstance());
-		final ProvStorageType storage = quoteStorage.getType();
+		final ProvStoragePrice storage = quoteStorage.getStorage();
 		Assert.assertNotNull(storage.getId());
 		Assert.assertEquals(0.04, storage.getCostGb(), 0.001);
 		Assert.assertEquals(0, storage.getCost(), 0.001);
-		Assert.assertEquals("Standard provisioned space", storage.getName());
-		Assert.assertEquals(ProvStorageFrequency.COLD, storage.getFrequency());
+		Assert.assertEquals("Standard provisioned space", storage.getType().getName());
+		Assert.assertEquals(ProvStorageFrequency.COLD, storage.getType().getFrequency());
 
 		// Not attached storage
 		Assert.assertNull(storages.get(3).getQuoteInstance());
