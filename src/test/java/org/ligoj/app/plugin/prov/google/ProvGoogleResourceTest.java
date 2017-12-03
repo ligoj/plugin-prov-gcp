@@ -16,9 +16,9 @@ import org.ligoj.app.model.Project;
 import org.ligoj.app.model.Subscription;
 import org.ligoj.app.plugin.prov.ProvResource;
 import org.ligoj.app.plugin.prov.QuoteVo;
-import org.ligoj.app.plugin.prov.model.ProvInstance;
+import org.ligoj.app.plugin.prov.model.ProvInstanceType;
 import org.ligoj.app.plugin.prov.model.ProvInstancePrice;
-import org.ligoj.app.plugin.prov.model.ProvInstancePriceType;
+import org.ligoj.app.plugin.prov.model.ProvInstancePriceTerm;
 import org.ligoj.app.plugin.prov.model.ProvQuote;
 import org.ligoj.app.plugin.prov.model.ProvQuoteInstance;
 import org.ligoj.app.plugin.prov.model.ProvQuoteStorage;
@@ -53,7 +53,7 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		persistSystemEntities();
 		persistEntities("csv",
 				new Class[] { Node.class, Project.class, Subscription.class, ProvQuote.class, ProvStorageType.class,
-						ProvInstancePriceType.class, ProvInstance.class, ProvInstancePrice.class,
+						ProvInstancePriceTerm.class, ProvInstanceType.class, ProvInstancePrice.class,
 						ProvQuoteInstance.class, ProvQuoteStorage.class },
 				StandardCharsets.UTF_8.name());
 		subscription = getSubscription("gStack", ProvGoogleResource.SERVICE_KEY);
@@ -75,20 +75,20 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		final ProvQuoteInstance quoteInstance = instances.get(0);
 		Assert.assertNotNull(quoteInstance.getId());
 		Assert.assertEquals("f1-micro-LINUX-Default-0.0086", quoteInstance.getName());
-		final ProvInstancePrice instancePrice = quoteInstance.getInstancePrice();
+		final ProvInstancePrice instancePrice = quoteInstance.getPrice();
 		Assert.assertEquals(0.0086, instancePrice.getCost(), 0.0001);
 		Assert.assertEquals(VmOs.LINUX, instancePrice.getOs());
-		Assert.assertNotNull(instancePrice.getType().getId());
-		Assert.assertEquals(1, instancePrice.getType().getPeriod().intValue());
-		Assert.assertEquals("Default", instancePrice.getType().getName());
-		final ProvInstance instance = instancePrice.getInstance();
+		Assert.assertNotNull(instancePrice.getTerm().getId());
+		Assert.assertEquals(1, instancePrice.getTerm().getPeriod().intValue());
+		Assert.assertEquals("Default", instancePrice.getTerm().getName());
+		final ProvInstanceType instance = instancePrice.getType();
 		Assert.assertNotNull(instance.getId().intValue());
 		Assert.assertEquals("f1-micro", instance.getName());
 		Assert.assertEquals(0.2, instance.getCpu(), 0.01);
 		Assert.assertEquals(614, instance.getRam().intValue());
 		Assert.assertFalse(instance.getConstant());
 		
-		Assert.assertEquals("SQL Server Enterprise",instances.get(2).getInstancePrice().getLicense());
+		Assert.assertEquals("SQL Server Enterprise",instances.get(2).getPrice().getLicense());
 
 		// Check storage
 		final List<ProvQuoteStorage> storages = vo.getStorages();
@@ -98,7 +98,7 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertEquals("server1-root", quoteStorage.getName());
 		Assert.assertEquals(20, quoteStorage.getSize().intValue());
 		Assert.assertNotNull(quoteStorage.getQuoteInstance());
-		final ProvStoragePrice storage = quoteStorage.getStorage();
+		final ProvStoragePrice storage = quoteStorage.getPrice();
 		Assert.assertNotNull(storage.getId());
 		Assert.assertEquals(0.04, storage.getCostGb(), 0.001);
 		Assert.assertEquals(0, storage.getCost(), 0.001);

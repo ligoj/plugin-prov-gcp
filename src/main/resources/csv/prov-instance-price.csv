@@ -1,4 +1,4 @@
-type.name;cost;instance.name;os;license;costCpu;costRam
+term.name;cost;type.name;os;license;costCpu;costRam
 Default;0.0086;f1-micro;LINUX;;;
 Default;0.0285;g1-small;LINUX;;;
 Default;0.0523;n1-standard-1;LINUX;;;
