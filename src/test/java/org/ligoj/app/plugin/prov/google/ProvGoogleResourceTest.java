@@ -22,7 +22,7 @@ import org.ligoj.app.plugin.prov.model.ProvInstancePriceTerm;
 import org.ligoj.app.plugin.prov.model.ProvQuote;
 import org.ligoj.app.plugin.prov.model.ProvQuoteInstance;
 import org.ligoj.app.plugin.prov.model.ProvQuoteStorage;
-import org.ligoj.app.plugin.prov.model.ProvStorageFrequency;
+import org.ligoj.app.plugin.prov.model.ProvStorageLatency;
 import org.ligoj.app.plugin.prov.model.ProvStoragePrice;
 import org.ligoj.app.plugin.prov.model.ProvStorageType;
 import org.ligoj.app.plugin.prov.model.VmOs;
@@ -103,7 +103,7 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertEquals(0.04, storage.getCostGb(), 0.001);
 		Assert.assertEquals(0, storage.getCost(), 0.001);
 		Assert.assertEquals("Standard provisioned space", storage.getType().getName());
-		Assert.assertEquals(ProvStorageFrequency.COLD, storage.getType().getFrequency());
+		Assert.assertEquals(ProvStorageLatency.LOW, storage.getType().getLatency());
 
 		// Not attached storage
 		Assert.assertNull(storages.get(3).getQuoteInstance());
