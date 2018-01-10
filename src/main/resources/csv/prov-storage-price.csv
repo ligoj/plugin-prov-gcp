@@ -1,0 +1,5 @@
+type.name;costGb;code
+Standard provisioned space;0.040;A
+SSD provisioned space;0.170;B
+Snapshot storage;0.026;C
+Image Storage;0.085;D

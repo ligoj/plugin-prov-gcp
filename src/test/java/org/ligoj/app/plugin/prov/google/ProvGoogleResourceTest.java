@@ -17,6 +17,7 @@ import org.ligoj.app.model.Subscription;
 import org.ligoj.app.plugin.prov.ProvResource;
 import org.ligoj.app.plugin.prov.QuoteVo;
 import org.ligoj.app.plugin.prov.model.ProvInstanceType;
+import org.ligoj.app.plugin.prov.model.ProvLocation;
 import org.ligoj.app.plugin.prov.model.ProvInstancePrice;
 import org.ligoj.app.plugin.prov.model.ProvInstancePriceTerm;
 import org.ligoj.app.plugin.prov.model.ProvQuote;
@@ -52,9 +53,9 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 	public void prepareData() throws IOException {
 		persistSystemEntities();
 		persistEntities("csv",
-				new Class[] { Node.class, Project.class, Subscription.class, ProvQuote.class, ProvStorageType.class,
-						ProvInstancePriceTerm.class, ProvInstanceType.class, ProvInstancePrice.class,
-						ProvQuoteInstance.class, ProvQuoteStorage.class },
+				new Class[] { Node.class, Project.class, Subscription.class, ProvLocation.class, ProvQuote.class, ProvStorageType.class,
+						ProvInstancePriceTerm.class, ProvInstanceType.class, ProvInstancePrice.class, ProvQuoteInstance.class,
+						ProvQuoteStorage.class },
 				StandardCharsets.UTF_8.name());
 		subscription = getSubscription("gStack", ProvGoogleResource.SERVICE_KEY);
 	}
@@ -87,8 +88,8 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assert.assertEquals(0.2, instance.getCpu(), 0.01);
 		Assert.assertEquals(614, instance.getRam().intValue());
 		Assert.assertFalse(instance.getConstant());
-		
-		Assert.assertEquals("SQL Server Enterprise",instances.get(2).getPrice().getLicense());
+
+		Assert.assertEquals("SQL Server Enterprise", instances.get(2).getPrice().getLicense());
 
 		// Check storage
 		final List<ProvQuoteStorage> storages = vo.getStorages();

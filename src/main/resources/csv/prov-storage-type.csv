@@ -1,5 +1,5 @@
-node.id;name;frequency;optimized;costGb;maximal;instanceCompatible
-service:prov:google;Standard provisioned space;COLD;THROUGHPUT;0.040;64000;true
-service:prov:google;SSD provisioned space;HOT;IOPS;0.170;64000;true
-service:prov:google;Snapshot storage;ARCHIVE;THROUGHPUT;0.026;;
-service:prov:google;Image Storage;ARCHIVE;;0.085;;
+node.id;name;latency;optimized;maximal;instanceCompatible
+service:prov:google;Standard provisioned space;LOW;THROUGHPUT;64000;true
+service:prov:google;SSD provisioned space;LOWEST;IOPS;64000;true
+service:prov:google;Snapshot storage;HIGH;THROUGHPUT;;
+service:prov:google;Image Storage;HIGH;;;

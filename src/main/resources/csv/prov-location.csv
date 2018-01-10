@@ -1,0 +1,14 @@
+name;node.id
+us-central1;service:prov:google
+us-west1;service:prov:google
+us-east1;service:prov:google
+us-east4;service:prov:google
+southamerica-east1;service:prov:google
+europe-west1;service:prov:google
+europe-west2;service:prov:google
+europe-west3;service:prov:google
+asia-east1;service:prov:google
+asia-south1;service:prov:google
+asia-northeast1;service:prov:google
+asia-southeast1;service:prov:google
+australia-southeast1;service:prov:google
