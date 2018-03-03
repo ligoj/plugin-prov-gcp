@@ -23,9 +23,9 @@ import org.ligoj.app.plugin.prov.model.ProvLocation;
 import org.ligoj.app.plugin.prov.model.ProvQuote;
 import org.ligoj.app.plugin.prov.model.ProvQuoteInstance;
 import org.ligoj.app.plugin.prov.model.ProvQuoteStorage;
-import org.ligoj.app.plugin.prov.model.ProvStorageLatency;
 import org.ligoj.app.plugin.prov.model.ProvStoragePrice;
 import org.ligoj.app.plugin.prov.model.ProvStorageType;
+import org.ligoj.app.plugin.prov.model.Rate;
 import org.ligoj.app.plugin.prov.model.VmOs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
@@ -80,7 +80,7 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assertions.assertEquals(0.0086, instancePrice.getCost(), 0.0001);
 		Assertions.assertEquals(VmOs.LINUX, instancePrice.getOs());
 		Assertions.assertNotNull(instancePrice.getTerm().getId());
-		Assertions.assertEquals(1, instancePrice.getTerm().getPeriod().intValue());
+		Assertions.assertEquals(1, instancePrice.getTerm().getPeriod());
 		Assertions.assertEquals("Default", instancePrice.getTerm().getName());
 		final ProvInstanceType instance = instancePrice.getType();
 		Assertions.assertNotNull(instance.getId().intValue());
@@ -104,7 +104,7 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assertions.assertEquals(0.04, storage.getCostGb(), 0.001);
 		Assertions.assertEquals(0, storage.getCost(), 0.001);
 		Assertions.assertEquals("Standard provisioned space", storage.getType().getName());
-		Assertions.assertEquals(ProvStorageLatency.LOW, storage.getType().getLatency());
+		Assertions.assertEquals(Rate.GOOD, storage.getType().getLatency());
 
 		// Not attached storage
 		Assertions.assertNull(storages.get(3).getQuoteInstance());
