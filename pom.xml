@@ -18,11 +18,7 @@
 		<dependency>
 			<groupId>org.ligoj.plugin</groupId>
 			<artifactId>plugin-prov</artifactId>
-<<<<<<< HEAD
 			<version>[1.5.0-SNAPSHOT,1.6.0)</version>
-=======
-			<version>[1.4.0-SNAPSHOT,1.5.0)</version>
->>>>>>> branch 'master' of https://github.com/ligoj/plugin-prov-google
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
