@@ -9,7 +9,7 @@
 [![Quality Gate](https://sonarcloud.io/api/badges/gate?key=org.ligoj.plugin:plugin-prov-google)](https://sonarcloud.io/dashboard/index/org.ligoj.plugin:plugin-prov-google)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0cbc71ea72a4e09a78c64afa32d2781)](https://www.codacy.com/app/ligoj/plugin-prov-google?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ligoj/plugin-prov-google&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/ligoj/plugin-prov-google/badge)](https://www.codefactor.io/repository/github/ligoj/plugin-prov-google)
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://gus.mit-license.org/)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://fabdouglas.mit-license.org/)
 
 [Ligoj](https://github.com/ligoj/ligoj) Google (GCP) provisioning plugin, and extending [Provisioning plugin](https://github.com/ligoj/plugin-prov)
 Provides the following features :
