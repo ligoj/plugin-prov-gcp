@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/ligoj/plugin-prov-google.svg?branch=master)](https://travis-ci.org/ligoj/plugin-prov-google)
 [![Build Status](https://circleci.com/gh/ligoj/plugin-prov-google.svg?style=svg)](https://circleci.com/gh/ligoj/plugin-prov-google)
-[![Build Status](https://codeship.com/projects/acbe2a10-05c9-0135-edfd-52b395dcacd9/status?branch=master)](https://codeship.com/projects/213624)
 [![Build Status](https://semaphoreci.com/api/v1/ligoj/plugin-prov-google/branches/master/shields_badge.svg)](https://semaphoreci.com/ligoj/plugin-prov-google)
 [![Build Status](https://ci.appveyor.com/api/projects/status/fth31gimvog3mrsp/branch/master?svg=true)](https://ci.appveyor.com/project/ligoj/plugin-prov-google/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/ligoj/plugin-prov-google/badge.svg?branch=master)](https://coveralls.io/github/ligoj/plugin-prov-google?branch=master)
