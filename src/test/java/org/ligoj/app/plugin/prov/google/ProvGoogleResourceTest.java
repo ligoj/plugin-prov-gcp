@@ -97,7 +97,7 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		final ProvQuoteStorage quoteStorage = storages.get(0);
 		Assertions.assertNotNull(quoteStorage.getId());
 		Assertions.assertEquals("server1-root", quoteStorage.getName());
-		Assertions.assertEquals(20, quoteStorage.getSize().intValue());
+		Assertions.assertEquals(20, quoteStorage.getSize());
 		Assertions.assertNotNull(quoteStorage.getQuoteInstance());
 		final ProvStoragePrice storage = quoteStorage.getPrice();
 		Assertions.assertNotNull(storage.getId());
