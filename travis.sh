@@ -10,17 +10,19 @@ function installMaven {
   echo "Setup Maven"
   mkdir -p ~/maven
   pushd ~/maven > /dev/null
-  if [ ! -d "apache-maven-3.5.4" ]; then
-    echo "Download Maven 3.5.4"
-    curl -sSL http://apache.mirrors.ovh.net/ftp.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz | tar zx -C ~/maven
+  if [ ! -d "apache-maven-3.8.1" ]; then
+    echo "Download Maven 3.8.1"
+    curl -sSL http://apache.mirrors.ovh.net/ftp.apache.org/dist/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz | tar zx -C ~/maven
   fi
   popd > /dev/null
-  export M2_HOME=~/maven/apache-maven-3.5.4
+  export M2_HOME=~/maven/apache-maven-3.8.1
   export PATH=$M2_HOME/bin:$PATH
   echo '<settings><profiles><profile><id>spring-milestone</id><repositories>' > $M2_HOME/conf/settings.xml
-  echo '<repository><id>spring-milestone</id><url>http://repo.spring.io/milestone/</url></repository>' >> $M2_HOME/conf/settings.xml
+  echo '<repository><id>spring-milestone</id><url>https://repo.spring.io/milestone/</url></repository>' >> $M2_HOME/conf/settings.xml
   echo '<repository><id>oss-sonatype</id><url>https://oss.sonatype.org/service/local/repositories/releases/content/</url></repository>' >> $M2_HOME/conf/settings.xml
-  echo '</repositories></profile></profiles><activeProfiles><activeProfile>spring-milestone</activeProfile></activeProfiles></settings>' >> $M2_HOME/conf/settings.xml
+  echo '</repositories><pluginRepositories>' >> $M2_HOME/conf/settings.xml
+  echo '<pluginRepository><id>spring-milestone-p</id><url>https://repo.spring.io/milestone/</url></pluginRepository>' >> $M2_HOME/conf/settings.xml
+  echo '</pluginRepositories></profile></profiles><activeProfiles><activeProfile>spring-milestone</activeProfile></activeProfiles></settings>' >> $M2_HOME/conf/settings.xml
 }
 
 #
@@ -52,7 +54,7 @@ function installMaven {
 #
 function fixBuildVersion {
   echo "Create a clean build version ..."
-  export INITIAL_VERSION=$(maven_expression "project.version")
+  export INITIAL_VERSION=$(mvn -q -Dexec.executable="echo" -Dexec.args="\${project.version}" --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec)
   echo "INITIAL_VERSION : $INITIAL_VERSION"
 
   # remove suffix -SNAPSHOT or -RC
@@ -80,16 +82,6 @@ function fixBuildVersion {
   echo "Project Version: $PROJECT_VERSION"
 }
 
-#
-# Configure Maven settings and install some script utilities
-#
-function configureTravis {
-  mkdir -p ~/.local
-  curl -sSL https://github.com/SonarSource/travis-utils/tarball/v50 | tar zx --strip-components 1 -C ~/.local
-  source ~/.local/bin/install
-}
-configureTravis
-
 case "$TARGET" in
 
 BUILD)
@@ -114,7 +106,8 @@ BUILD)
 
     mvn clean package jacoco:report sonar:sonar \
           $MAVEN_ARGS \
-          -Pjacoco -Djacoco.includes=org.ligoj.app.plugin.prov.google.* \
+          -Pjacoco -Djacoco.includes="org.ligoj.app.plugin.prov.google.*" \
+          -Dsonar.javascript.exclusions="node_modules,dist" \
           -Dsonar.host.url=$SONAR_HOST_URL \
           -Dsonar.organization=ligoj-github \
           -Dsonar.login=$SONAR_TOKEN \
@@ -125,28 +118,25 @@ BUILD)
           -Dmaven.ut.reuseForks=true -Dmaven.it.reuseForks=false \
           -Djava.awt.headless=true
 
-	MAVEN_OPTS="$MAVEN_OPTS -noverify --add-modules java.xml.bind"
-    mvn coveralls:report \
-          $MAVEN_ARGS
-
-  elif [[ "$TRAVIS_BRANCH" == "branch-"* ]] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    echo 'Build release branch'
-
-    mvn install $MAVEN_ARGS
-
   elif [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ -n "${GITHUB_TOKEN:-}" ]; then
     echo 'Build and analyze internal pull request'
 
-    mvn org.jacoco:jacoco-maven-plugin:prepare-agent deploy sonar:sonar \
+    mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar \
         $MAVEN_ARGS \
+          -Pjacoco -Djacoco.includes="org.ligoj.app.plugin.prov.google.*" \
+          -Dsonar.javascript.exclusions="node_modules,dist" \
+          -Dsonar.host.url=$SONAR_HOST_URL \
+          -Dsonar.organization=ligoj-github \
+          -Dsonar.login=$SONAR_TOKEN \
+          -Dsonar.projectVersion=$PROJECT_VERSION \
+          -Dsonar.github.repository=$TRAVIS_REPO_SLUG \
+          -Dsonar.github.oauth=$GITHUB_TOKEN \
+          -Dmaven.javadoc.skip=true \
+          -Dmaven.ut.reuseForks=true -Dmaven.it.reuseForks=false \
+          -Djava.awt.headless=true \
         -Dsource.skip=true \
-        -Pdeploy-sonarsource \
         -Dsonar.analysis.mode=preview \
-        -Dsonar.github.pullRequest=$TRAVIS_PULL_REQUEST \
-        -Dsonar.github.repository=$TRAVIS_REPO_SLUG \
-        -Dsonar.github.oauth=$GITHUB_TOKEN \
-        -Dsonar.host.url=$SONAR_HOST_URL \
-        -Dsonar.login=$SONAR_TOKEN
+        -Dsonar.github.pullRequest=$TRAVIS_PULL_REQUEST
 
   else
     echo 'Build feature branch or external pull request'
