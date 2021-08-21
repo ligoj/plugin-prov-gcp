@@ -1,6 +1,6 @@
 # :link: Ligoj Google plugin (not released)
 
-[![Build Status](https://travis-ci.org/ligoj/plugin-prov-google.svg?branch=master)](https://travis-ci.org/ligoj/plugin-prov-google)
+[![Build Status](https://travis-ci.com/ligoj/plugin-prov-google.svg?branch=master)](https://travis-ci.com/ligoj/plugin-prov-google)
 [![Build Status](https://circleci.com/gh/ligoj/plugin-prov-google.svg?style=svg)](https://circleci.com/gh/ligoj/plugin-prov-google)
 [![Build Status](https://ci.appveyor.com/api/projects/status/fth31gimvog3mrsp/branch/master?svg=true)](https://ci.appveyor.com/project/ligoj/plugin-prov-google/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/ligoj/plugin-prov-google/badge.svg?branch=master)](https://coveralls.io/github/ligoj/plugin-prov-google?branch=master)
