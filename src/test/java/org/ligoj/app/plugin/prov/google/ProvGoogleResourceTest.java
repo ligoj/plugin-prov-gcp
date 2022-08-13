@@ -87,7 +87,6 @@ public class ProvGoogleResourceTest extends AbstractAppTest {
 		Assertions.assertEquals("f1-micro", instance.getName());
 		Assertions.assertEquals(0.2, instance.getCpu(), 0.01);
 		Assertions.assertEquals(614, instance.getRam());
-		Assertions.assertFalse(instance.getConstant());
 
 		Assertions.assertEquals("SQL Server Enterprise", instances.get(2).getPrice().getLicense());
 
